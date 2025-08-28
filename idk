@@ -1,0 +1,223 @@
+📘 Git & GitHub Guide
+A clear and concise guide for beginners to intermediates to master Git and GitHub with practical examples and workflows.
+📚 Table of Contents
+
+Terminal Basics
+Git Setup
+Creating a Repository
+Checking Status
+Staging & Committing
+Viewing History
+Comparing Versions
+Restoring & Reverting
+Branching
+Merging
+Handling Merge Conflicts
+Cloning Repositories
+Working with Remotes
+Pulling from Remote
+Pushing to Remote
+Real-World Scenario
+Daily Workflow
+
+Terminal Basics
+Navigate your terminal with these commands:
+
+
+
+Command
+Description
+Example
+
+
+
+pwd
+Show current directory
+pwd
+
+
+ls
+List files and folders
+ls
+
+
+cd <directory>
+Change to specified directory
+cd my-project
+
+
+Git Setup
+Verify Git is installed:
+git --version
+
+Set up your identity:
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+Creating a Repository
+Initialize a new repository:
+git init my-project
+
+
+Creates a folder named my-project with Git initialized.
+
+Convert an existing folder:
+cd /path/to/folder
+git init
+
+Example:
+cd ~/projects/my-project
+git init
+
+Checking Status
+Check repository status:
+git status
+
+Shows:
+
+Modified files
+Untracked files
+Current branch
+
+Staging & Committing
+Stage changes:
+
+Single file: git add <filename>
+All files: git add .
+
+Commit changes:
+git commit -m "Add feature X"
+
+Tip: Use descriptive commit messages.
+Viewing History
+View commit history:
+git log
+
+
+Last 3 commits: git log -3
+Specific file: git log <filename>
+Date range: git log --since="2024-04-02" --until="2024-04-11"
+Specific commit: git show <commit-hash>
+
+Example:
+git log README.md
+git show c27fa856
+
+Comparing Versions
+Compare changes:
+
+Current vs. last commit: git diff
+Staged changes: git diff --staged
+Between commits: git diff <hash1> <hash2>
+Latest vs. previous commit: git diff HEAD~1 HEAD
+
+Restoring & Reverting
+Revert a commit:
+git revert HEAD
+
+
+Skip editor: git revert --no-edit HEAD
+Revert without committing: git revert -n HEAD
+
+Restore a file:
+git checkout HEAD~1 -- <filename>
+
+Unstage changes:
+
+Single file: git restore --staged <filename>
+All files: git restore --staged .
+
+Branching
+Manage branches:
+
+List branches: git branch
+Switch branches: git switch <branch>
+Create branch: git branch <branch>
+Create and switch: git switch -c <branch>
+Rename branch: git branch -m <old> <new>
+Delete branch: git branch -d <branch>
+
+Example:
+git switch -c feature-login
+
+Merging
+Merge a branch:
+git switch main
+git merge feature-login
+
+Handling Merge Conflicts
+Resolve conflicts:
+
+Open conflicted file (e.g., nano README.md).
+Find conflict markers:<<<<<<< HEAD
+Local changes
+=======
+Remote changes
+>>>>>>> origin/main
+
+
+Edit to resolve, then:git add README.md
+git commit -m "Resolve merge conflict"
+
+
+
+Cloning Repositories
+Clone a repository:
+git clone https://github.com/username/repo.git
+
+Clone into a specific folder:
+git clone https://github.com/username/repo.git my-folder
+
+Working with Remotes
+Manage remotes:
+
+List remotes: git remote
+Detailed view: git remote -v
+Add remote: git remote add origin https://github.com/username/repo.git
+
+Pulling from Remote
+Fetch updates:
+git fetch origin
+
+Pull and merge:
+git pull origin main
+
+Skip merge editor:
+git pull --no-edit origin main
+
+Pushing to Remote
+Push changes:
+git push origin main
+
+Push a new branch:
+git push origin feature-login
+
+Real-World Scenario
+Example: Resolving a conflict after linking a local repo to GitHub:
+
+Initialize and commit locally:git init
+git add .
+git commit -m "Initial commit"
+
+
+Link to GitHub:git remote add origin https://github.com/username/my-project.git
+
+
+Push fails due to GitHub's README.md:git pull origin main --allow-unrelated-histories
+
+
+Resolve conflicts in README.md, then:git add README.md
+git commit -m "Resolve README conflict"
+git push origin main
+
+
+
+Daily Workflow
+
+Check status: git status
+Stage changes: git add .
+Commit: git commit -m "Add feature X"
+Pull updates: git pull origin main
+Push: git push origin main
+
+Tip: Pull before pushing to avoid conflicts.
